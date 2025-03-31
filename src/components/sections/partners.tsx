@@ -113,7 +113,7 @@ export function Partners({ className }: PartnersProps) {
                 image: logo.fallbackImage || logo.image,
               };
             }
-          } catch (error) {
+          } catch {
             // Use fallback on error
             return {
               ...logo,

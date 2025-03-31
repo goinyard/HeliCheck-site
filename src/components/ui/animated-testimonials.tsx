@@ -33,7 +33,7 @@ export const AnimatedTestimonials = ({
       rotationValues.current = testimonials.map(() => Math.floor(Math.random() * 21) - 10);
     }
     setIsClient(true);
-  }, [testimonials.length]);
+  }, [testimonials]);
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -52,7 +52,7 @@ export const AnimatedTestimonials = ({
       const interval = setInterval(handleNext, 10000);
       return () => clearInterval(interval);
     }
-  }, [autoplay, isClient]);
+  }, [autoplay, isClient, handleNext]);
 
   // Use stable values for server render, then use pre-calculated random values on client
   const getRotationValue = (index: number) => {

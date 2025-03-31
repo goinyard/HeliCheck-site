@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/ui/world-map";
 import { useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 
 interface Location {
   name: string;
@@ -94,7 +94,7 @@ export function Map({
   const isInView = useInView(mapRef, { once: true, amount: 0.3 });
 
   // Create connections between locations for the map
-  const connections = locations.slice(1).map((location, index) => ({
+  const connections = locations.slice(1).map((location) => ({
     start: { 
       lat: locations[0].lat,
       lng: locations[0].lng,

@@ -6,12 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   NavigationMenu, 
-  NavigationMenuContent, 
   NavigationMenuItem, 
   NavigationMenuLink, 
-  NavigationMenuList, 
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
+  NavigationMenuList
 } from "@/components/ui/navigation-menu";
 import {
   Drawer,

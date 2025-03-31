@@ -1,10 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 export function Hero() {
   const cardRef = useRef<HTMLDivElement>(null);

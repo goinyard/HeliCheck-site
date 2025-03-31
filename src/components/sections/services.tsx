@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 interface ServicesProps {
@@ -303,7 +302,7 @@ export function Services({ className }: ServicesProps) {
             <div className="p-10 flex flex-col justify-center">
               <h3 className="text-3xl font-bold text-white mb-4">Ready to discover what lies beneath?</h3>
               <p className="text-[var(--brand-foreground)]/80 mb-8">
-                Contact our team to discuss your exploration needs and discover how HeliCheck's advanced geophysical services can transform your project.
+                Contact our team to discuss your exploration needs and discover how HeliCheck&apos;s advanced geophysical services can transform your project.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button className="bg-white text-[var(--brand)] hover:bg-[var(--brand-foreground)]/90 px-6 py-3 rounded-lg font-medium transition-colors shadow-sm hover:shadow cursor-pointer">

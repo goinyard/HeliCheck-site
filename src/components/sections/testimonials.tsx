@@ -9,12 +9,9 @@ interface TestimonialsProps {
 }
 
 export function Testimonials({ className }: TestimonialsProps) {
-  // Add client-side only state to prevent hydration mismatch
-  const [isClient, setIsClient] = useState(false);
-
   // Mark as client-side rendered after mount
   useEffect(() => {
-    setIsClient(true);
+    // Initialize client-side code
   }, []);
 
   // Testimonial data

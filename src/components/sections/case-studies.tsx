@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { Gallery4 } from "@/components/blocks/gallery4";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { CarouselApi } from "@/components/ui/carousel";
@@ -13,16 +12,13 @@ interface CaseStudiesProps {
 
 export function CaseStudies({ className }: CaseStudiesProps) {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
 
   useEffect(() => {
     if (!carouselApi) {
       return;
     }
     const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
+      // Keeping the update function for future use if needed
     };
     updateSelection();
     carouselApi.on("select", updateSelection);
