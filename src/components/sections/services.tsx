@@ -28,7 +28,8 @@ export function Services({ className }: ServicesProps) {
             Our Survey Solutions
           </h2>
           <p className="text-gray-500 text-lg max-w-3xl mb-6">
-           With over 30 years experience in development of advanced survey instrumentation and techniques, our surveys deliver unparalleled data quality capabilities for mineral exploration worldwide.          </p>
+           Our proprietary technology delivers unparalleled data quality and depth capabilities that conventional methods can't match, transforming exploration challenges into actionable insights and cost-effective discoveries for clients worldwide.
+          </p>
         </div>
 
         {/* Featured Service Card */}

@@ -28,7 +28,7 @@ interface TeamProps {
 export function Team({
   title = "Industry Leaders in Geophysical Innovation",
   subtitle = "Our Team & Expertise",
-  description = "Combining advanced technology with decades of specialized expertise to deliver superior survey results.",
+  description = "Our world-class team of geophysicists and engineers brings decades of specialized expertise to every project, pioneering innovative technologies that transform complex geological challenges into mineral discoveries others miss.",
   members = [
     // Leadership team
     {
