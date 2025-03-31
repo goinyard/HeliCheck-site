@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface TestimonialsProps {
   className?: string;

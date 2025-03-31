@@ -3,7 +3,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { cn } from "@/lib/utils";
 
 type Testimonial = {
@@ -35,13 +35,13 @@ export const AnimatedTestimonials = ({
     setIsClient(true);
   }, [testimonials]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const isActive = (index: number) => {
     return index === active;
