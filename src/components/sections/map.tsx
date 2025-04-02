@@ -93,12 +93,12 @@ export function Map({
   const mapRef = useRef(null);
   const isInView = useInView(mapRef, { once: true, amount: 0.3 });
 
-  // Create connections between locations for the map
-  const connections = locations.slice(1).map((location) => ({
+  // Create individual location points for the map
+  const locationPoints = locations.map((location) => ({
     start: { 
-      lat: locations[0].lat,
-      lng: locations[0].lng,
-      label: locations[0].name
+      lat: location.lat,
+      lng: location.lng,
+      label: location.name
     },
     end: { 
       lat: location.lat,
@@ -126,9 +126,9 @@ export function Map({
 
         <div ref={mapRef} className="mb-12 flex justify-center items-center h-[224px] max-w-[56%] mx-auto">
           <WorldMap 
-            dots={isInView ? connections : []} 
+            dots={isInView ? locationPoints : []} 
             lineColor="var(--brand)"
-            playOnce={true}
+            playOnce={false}
           />
         </div>
 
