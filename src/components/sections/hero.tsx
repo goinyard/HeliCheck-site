@@ -77,7 +77,7 @@ export function Hero() {
               style={{
                 transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
                 transition: 'transform 0.3s ease-out',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                boxShadow: '0 25px 55px -12px rgba(255, 153, 0, 0.3)',
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent z-10 pointer-events-none" />

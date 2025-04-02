@@ -34,14 +34,8 @@ export function Services({ className }: ServicesProps) {
 
         {/* Featured Service Card */}
         <div className="max-w-7xl mx-auto bg-[var(--brand)]/5 p-6 sm:p-10 rounded-2xl mb-12">
-          <div className="mb-4">
-            <span className="bg-[var(--brand)] text-white px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase">
-              Featured Service
-            </span>
-          </div>
-          
           <h3 className="text-4xl font-bold text-gray-900 mb-2 tracking-tight">
-            Helicopter Airborne Electromagnetic Survey 
+            Helicopter Electromagnetic Survey 
           </h3>
           <div className="w-24 h-1 bg-[var(--brand)] rounded-full mb-6"></div>
           
@@ -68,7 +62,7 @@ export function Services({ className }: ServicesProps) {
             <div className="col-span-7">
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
                 HeliCheck specializes in helicopter-borne electromagnetic (EM) surveys that deliver unmatched data quality for mineral exploration worldwide. 
-                Our helicopter EM technology enables geologists and data scientists to identify promising mineral deposits that ground-based surveys might miss entirely. 
+                Our helicopter EM technology enables geologists and data scientists to rapidly identify potential mineral deposits across large areas, including challenging terrains that would be time-consuming or difficult to access with ground-based methods alone. 
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-10">
@@ -128,7 +122,7 @@ export function Services({ className }: ServicesProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Service 1 */}
             <Link href="/services/sam" className="block h-full group">
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
@@ -145,7 +139,6 @@ export function Services({ className }: ServicesProps) {
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Simultaneous measurement of magnetic and electrical properties of the sub-surface.
                   </p>
-                  <div className="text-xs text-gray-500 mb-4 border-t border-gray-100 pt-3"><span className="font-semibold">Depth:</span> 100-400m</div>
                   <div className="mt-auto flex items-center text-[var(--brand)] font-medium text-sm">
                     <span className="mr-2 group-hover:mr-3 transition-all duration-300">Explore SAM</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -156,7 +149,7 @@ export function Services({ className }: ServicesProps) {
             
             {/* Service 2 */}
             <Link href="/services/samson" className="block h-full group">
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/29035007/pexels-photo-29035007/free-photo-of-archaeological-survey-at-perigueux-ruins.jpeg" 
@@ -173,7 +166,6 @@ export function Services({ className }: ServicesProps) {
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Low frequency technology for deep exploration with enhanced signal penetration.
                   </p>
-                  <div className="text-xs text-gray-500 mb-4 border-t border-gray-100 pt-3"><span className="font-semibold">Depth:</span> 200-800m</div>
                   <div className="mt-auto flex items-center text-[var(--brand)] font-medium text-sm">
                     <span className="mr-2 group-hover:mr-3 transition-all duration-300">Explore SAMSON</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -184,7 +176,7 @@ export function Services({ className }: ServicesProps) {
             
             {/* Service 3 */}
             <Link href="/services/borehole" className="block h-full group">
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
                   <img 
                     src="https://www.engineerlive.com/sites/engineerlive/files/Renishaw%20198ce103e0f9498f8b03ffc5c5f11358.jpg" 
@@ -201,7 +193,6 @@ export function Services({ className }: ServicesProps) {
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     EM and MMR sub-surface measurements for detailed underground analysis.
                   </p>
-                  <div className="text-xs text-gray-500 mb-4 border-t border-gray-100 pt-3"><span className="font-semibold">Depth:</span> Variable</div>
                   <div className="mt-auto flex items-center text-[var(--brand)] font-medium text-sm">
                     <span className="mr-2 group-hover:mr-3 transition-all duration-300">Explore Borehole</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -212,7 +203,7 @@ export function Services({ className }: ServicesProps) {
             
             {/* Service 4 */}
             <Link href="/services/ip" className="block h-full group">
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
                   <img 
                     src="https://zonge.com.au/wp-content/uploads/2019/07/Techknology.jpg" 
@@ -229,7 +220,6 @@ export function Services({ className }: ServicesProps) {
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Mapping ground resistivity and chargeability in time or frequency mode.
                   </p>
-                  <div className="text-xs text-gray-500 mb-4 border-t border-gray-100 pt-3"><span className="font-semibold">Depth:</span> 300-600m</div>
                   <div className="mt-auto flex items-center text-[var(--brand)] font-medium text-sm">
                     <span className="mr-2 group-hover:mr-3 transition-all duration-300">Explore IP</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -240,7 +230,7 @@ export function Services({ className }: ServicesProps) {
             
             {/* Service 5 */}
             <Link href="/services/surface-em" className="block h-full group">
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
                   <img 
                     src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/2017-07-20_geological-characterization-mojave.jpg" 
@@ -257,7 +247,6 @@ export function Services({ className }: ServicesProps) {
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Mapping groundwater, mining tailings dams, and environmentally compromised sites.
                   </p>
-                  <div className="text-xs text-gray-500 mb-4 border-t border-gray-100 pt-3"><span className="font-semibold">Depth:</span> 50-200m</div>
                   <div className="mt-auto flex items-center text-[var(--brand)] font-medium text-sm">
                     <span className="mr-2 group-hover:mr-3 transition-all duration-300">Explore Surface EM</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -268,7 +257,7 @@ export function Services({ className }: ServicesProps) {
             
             {/* Service 6 */}
             <Link href="/services/environmental" className="block h-full group">
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-full cursor-pointer border border-gray-100 hover:border-[var(--brand)]/20">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
                   <img 
                     src="https://images.pexels.com/photos/8961154/pexels-photo-8961154.jpeg" 
@@ -285,7 +274,6 @@ export function Services({ className }: ServicesProps) {
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     Specialized solutions for groundwater mapping and environmental site assessment.
                   </p>
-                  <div className="text-xs text-gray-500 mb-4 border-t border-gray-100 pt-3"><span className="font-semibold">Depth:</span> Variable</div>
                   <div className="mt-auto flex items-center text-[var(--brand)] font-medium text-sm">
                     <span className="mr-2 group-hover:mr-3 transition-all duration-300">Explore Environmental</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
