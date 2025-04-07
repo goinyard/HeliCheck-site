@@ -4,6 +4,12 @@ import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/ui/world-map";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface Location {
   name: string;
@@ -93,6 +99,12 @@ export function Map({
   const mapRef = useRef(null);
   const isInView = useInView(mapRef, { once: true, amount: 0.3 });
 
+  // Create Google Maps URL for a location
+  const getGoogleMapsUrl = (location: Location) => {
+    const query = encodeURIComponent(`${location.address}, ${location.country}`);
+    return `https://www.google.com/maps/search/?api=1&query=${query}`;
+  };
+
   // Create individual location points for the map
   const locationPoints = locations.map((location) => ({
     start: { 
@@ -121,7 +133,6 @@ export function Map({
           <p className="text-gray-500 text-lg max-w-3xl mb-6">
             {subtitle}
           </p>
-          <div className="h-1 w-20 bg-[var(--brand)] rounded-full"></div>
         </div>
 
         <div ref={mapRef} className="mb-12 flex justify-center items-center h-[224px] max-w-[56%] mx-auto">
@@ -136,7 +147,7 @@ export function Map({
           {locations.map((location) => (
             <div 
               key={`${location.name}-${location.country}`}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all overflow-hidden group"
+              className="bg-white p-6 rounded-xl shadow-md transition-all overflow-hidden"
             >
               <div className="flex items-center mb-3">
                 <span className="text-sm font-medium text-[var(--brand)] bg-[var(--brand)]/5 px-3 py-1 rounded-full">
@@ -144,7 +155,7 @@ export function Map({
                 </span>
               </div>
               
-              <h3 className="text-xl font-bold text-slate-900 group-hover:text-[var(--brand)] transition-colors mb-4">
+              <h3 className="text-xl font-bold text-slate-900 transition-colors mb-4">
                 {location.name === "Saskatoon" ? `${location.name} (Headquarters)` : location.name}
               </h3>
               
@@ -155,8 +166,30 @@ export function Map({
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                   </div>
                   <div className="text-sm text-slate-600 leading-tight flex flex-col">
-                    <span className="font-medium text-slate-700">{location.address}</span>
-                    <span className="font-medium text-slate-700">{location.country}</span>
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <a 
+                            href={getGoogleMapsUrl(location)} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="flex flex-col hover:bg-slate-50 rounded-sm px-1 -ml-1 transition-all"
+                          >
+                            <span className="font-medium text-slate-700 hover:text-slate-900 transition-colors">{location.address}</span>
+                            <span className="font-medium text-slate-700 hover:text-slate-900 transition-colors">{location.country}</span>
+                          </a>
+                        </TooltipTrigger>
+                        <TooltipContent
+                          side="top"
+                          className="bg-slate-800/90 text-white text-xs px-2 py-1"
+                        >
+                          <div className="flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                            <p>Open in Maps</p>
+                          </div>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
                   </div>
                 </div>
                 
@@ -165,9 +198,24 @@ export function Map({
                   <div className="h-5 w-5 rounded-full bg-[var(--brand)]/5 flex items-center justify-center text-[var(--brand)] flex-shrink-0 mr-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                   </div>
-                  <a href={`tel:${location.phone?.replace(/\./g, '')}`} className="text-sm font-medium text-[var(--brand)] hover:underline">
-                    {location.phone}
-                  </a>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a href={`tel:${location.phone?.replace(/\./g, '')}`} className="text-sm font-medium text-[var(--brand)] hover:underline">
+                          {location.phone}
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        side="top"
+                        className="bg-slate-800/90 text-white text-xs px-2 py-1"
+                      >
+                        <div className="flex items-center gap-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                          <p>Call</p>
+                        </div>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </div>
               </div>
             </div>

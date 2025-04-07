@@ -71,7 +71,7 @@ export function CaseStudies({ className }: CaseStudiesProps) {
   ];
 
   return (
-    <section className={cn("py-20 mt-8 sm:mt-0 bg-gray-50", className)} id="case-studies">
+    <section className={cn("py-20 mt-0 bg-gray-50 relative z-10", className)} id="case-studies">
       <div className="container mx-auto mb-6">
         <div className="flex flex-col items-center text-center mb-4">
           <div className="mb-4 px-3 py-1 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] inline-flex items-center text-sm font-medium">

@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
 
 export function Hero() {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const cardRef = useRef<HTMLDivElement>(null); //access the DOM similar to getElementById
+  const [rotation, setRotation] = useState({ x: 0, y: 0 }); // memory state for rotation
 
-  useEffect(() => {
+  useEffect(() => { //side effect to run when the component mounts eg event listener for mouse move
     const card = cardRef.current;
     if (!card) return;
 
@@ -40,8 +40,10 @@ export function Hero() {
     };
   }, []);
 
+
+  
   return (
-    <section className="w-full pt-28 pb-16 md:pt-28 md:pb-24 lg:pb-32">
+    <section className="w-full pt-28 pb-16 md:pt-28 md:pb-24 lg:pb-32"> 
       <div className="container px-4 md:px-6 mx-auto">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="space-y-5 md:space-y-6 text-center lg:text-left">
@@ -51,7 +53,7 @@ export function Hero() {
             <p className="max-w-[600px] mx-auto lg:mx-0 text-slate-700 text-lg md:text-xl">
               Our global helicopter EM surveys deliver critical precision data that mining leaders rely on for confident exploration decisions and discoveries others miss
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"> 
               <Button 
                 size="lg" 
                 variant="brand"
@@ -70,6 +72,8 @@ export function Hero() {
               </Button>
             </div>
           </div>
+
+          {/* video card with useReF for mouse tracking */}
           <div className="mt-8 lg:mt-0">
             <div 
               ref={cardRef}

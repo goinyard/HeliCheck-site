@@ -72,14 +72,18 @@ export function Header() {
 
   // Handler for smooth scrolling to sections
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    // Only prevent default and handle scroll if we're on the home page
+    if (window.location.pathname === '/' || window.location.pathname === '') {
+      e.preventDefault();
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    }
+    // Otherwise, let the default link behavior navigate to the home page with the hash
   };
 
   const mobileLinks = [
-    { href: "#services", label: "Services", isSection: true },
-    { href: "#case-studies", label: "Case Studies", isSection: true },
-    { href: "#team", label: "Team", isSection: true },
+    { href: "/#services", label: "Services", isSection: true },
+    { href: "/#team", label: "Team", isSection: true },
+    { href: "/#case-studies", label: "Case Studies", isSection: true },
     { href: "/hsec", label: "HSEC", isSection: false },
     { href: "/contact", label: "Contact Us", isSection: false },
   ];
@@ -111,7 +115,7 @@ export function Header() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link 
-                  href="#services" 
+                  href="/#services" 
                   legacyBehavior 
                   passHref
                 >
@@ -125,21 +129,7 @@ export function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link 
-                  href="#case-studies" 
-                  legacyBehavior 
-                  passHref
-                >
-                  <NavigationMenuLink 
-                    className={textWithHoverStyle}
-                    onClick={(e) => scrollToSection(e, "case-studies")}
-                  >
-                    Case Studies
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link 
-                  href="#team" 
+                  href="/#team" 
                   legacyBehavior 
                   passHref
                 >
@@ -148,6 +138,20 @@ export function Header() {
                     onClick={(e) => scrollToSection(e, "team")}
                   >
                     Team
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link 
+                  href="/#case-studies" 
+                  legacyBehavior 
+                  passHref
+                >
+                  <NavigationMenuLink 
+                    className={textWithHoverStyle}
+                    onClick={(e) => scrollToSection(e, "case-studies")}
+                  >
+                    Case Studies
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -209,12 +213,19 @@ export function Header() {
                       className="py-3 text-lg font-medium text-slate-900 hover:text-[var(--brand)]"
                       onClick={(e) => {
                         if (link.isSection) {
-                          e.preventDefault();
-                          setIsOpen(false);
-                          const id = link.href.replace('#', '');
-                          setTimeout(() => {
-                            document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-                          }, 100);
+                          // Only handle scrolling if we're on the home page
+                          if (window.location.pathname === '/' || window.location.pathname === '') {
+                            e.preventDefault();
+                            setIsOpen(false);
+                            const id = link.href.replace('/#', '');
+                            setTimeout(() => {
+                              document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                            }, 100);
+                          }
+                          // Otherwise let the link navigate to home page with hash
+                          else {
+                            setIsOpen(false);
+                          }
                         }
                       }}
                     >

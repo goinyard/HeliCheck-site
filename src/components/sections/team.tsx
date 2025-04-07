@@ -37,7 +37,7 @@ export function Team({
       role: "CEO & Founder",
       title: "Chief Executive Officer",
       description: "Ph.D. in Geophysics with 25+ years of experience developing advanced survey methodologies for mineral exploration.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.pexels.com/photos/31431924/pexels-photo-31431924/free-photo-of-confident-businessman-in-outdoor-setting.jpeg",
       department: "Leadership",
       skills: ["Geophysics", "EM Technology"],
     },
@@ -47,7 +47,7 @@ export function Team({
       role: "Chief Technical Officer",
       title: "Technical Innovation",
       description: "Leading innovation in electromagnetic survey technology with specialized expertise in data processing algorithms and instrumentation design.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80",
+      image: "https://images.pexels.com/photos/31431917/pexels-photo-31431917/free-photo-of-professional-woman-outdoors-in-business-attire.jpeg",
       department: "Leadership",
       skills: ["Data Science", "Equipment Design"],
     },
@@ -57,7 +57,7 @@ export function Team({
       role: "Director of Operations",
       title: "Global Field Operations",
       description: "20+ years managing complex survey operations in challenging environments across 6 continents. Expert in logistics and field operations.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.pexels.com/photos/31431923/pexels-photo-31431923/free-photo-of-confident-businessman-posing-by-marina.jpeg",
       department: "Leadership",
       skills: ["Global Operations", "Safety"],
     },
@@ -68,7 +68,7 @@ export function Team({
       role: "Lead Geophysicist",
       title: "EM Data Specialist",
       description: "Specializing in electromagnetic data processing and interpretation with over 15 years of experience in mineral exploration.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      image: "https://images.pexels.com/photos/31431921/pexels-photo-31431921/free-photo-of-professional-businesswoman-portrait-with-glasses.jpeg",
       department: "Technical Team",
       skills: ["Data Processing", "EM Modeling"],
     },
@@ -78,17 +78,17 @@ export function Team({
       role: "Senior Engineer",
       title: "Equipment Design",
       description: "Expert in designing and maintaining helicopter-mounted geophysical survey equipment and calibration systems.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.pexels.com/photos/31431920/pexels-photo-31431920/free-photo-of-professional-headshot-of-smiling-man-with-glasses.jpeg",
       department: "Technical Team",
       skills: ["Hardware Design", "System Integration"],
     },
     {
       id: "team-6",
-      name: "Dr. Lisa Hernandez",
+      name: "Dr. John Hernandez",
       role: "Data Scientist",
       title: "Machine Learning Specialist",
       description: "Applying advanced algorithms to enhance mineral deposit identification from geophysical survey data.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.pexels.com/photos/31431922/pexels-photo-31431922/free-photo-of-professional-headshot-of-smiling-man-in-blue-shirt.jpeg",
       department: "Technical Team",
       skills: ["Machine Learning", "Neural Networks"],
     },
@@ -99,7 +99,7 @@ export function Team({
       role: "Field Operations Manager",
       title: "Survey Team Lead",
       description: "Coordinating field teams and helicopter pilots to ensure efficient and safe survey operations in remote locations.",
-      image: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80",
+      image: "https://images.pexels.com/photos/31431919/pexels-photo-31431919/free-photo-of-confident-businessman-outdoors-in-blue-suit.jpeg",
       department: "Operations",
       skills: ["Field Logistics", "Safety Procedures"],
     },
@@ -109,17 +109,17 @@ export function Team({
       role: "Project Coordinator",
       title: "Client Relations",
       description: "Managing project timelines, client communications, and ensuring survey deliverables meet quality standards.",
-      image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg",
       department: "Operations",
       skills: ["Project Management", "Client Relations"],
     },
     {
       id: "team-9",
-      name: "David Chen",
+      name: "Lisa Blais",
       role: "Logistics Specialist",
       title: "Global Deployment",
       description: "Expert in international logistics, equipment transport, and navigating regulatory requirements for survey operations worldwide.",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      image: "https://i.imgur.com/6XKw28j.jpeg",
       department: "Operations",
       skills: ["International Logistics", "Regulatory Compliance"],
     }
@@ -150,7 +150,7 @@ export function Team({
   };
 
   return (
-    <section className={cn("py-20 pb-80 sm:pb-20 bg-white", className)} id="team">
+    <section className={cn("py-20 pb-20 sm:pb-20 bg-white overflow-visible", className)} id="team">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -205,12 +205,12 @@ export function Team({
             </TabsList>
             
             {/* Tab content container with preserved height */}
-            <div className="relative mt-6 min-h-[520px] sm:min-h-[500px]">
+            <div className="relative mt-6 min-h-[520px] md:min-h-[520px]">
               {/* Leadership Tab */}
               <TabsContent 
                 value="leadership" 
                 className={cn(
-                  "absolute inset-0 transition-all duration-300 ease-in-out", 
+                  "transition-all duration-300 ease-in-out", 
                   activeTab === "leadership" 
                     ? "opacity-100 transform-none z-10 pointer-events-auto" 
                     : previousTab === "leadership" && isAnimating
@@ -255,7 +255,7 @@ export function Team({
               <TabsContent 
                 value="technical" 
                 className={cn(
-                  "absolute inset-0 transition-all duration-300 ease-in-out", 
+                  "transition-all duration-300 ease-in-out", 
                   activeTab === "technical" 
                     ? "opacity-100 transform-none z-10 pointer-events-auto" 
                     : previousTab === "technical" && isAnimating
@@ -300,7 +300,7 @@ export function Team({
               <TabsContent 
                 value="operations" 
                 className={cn(
-                  "absolute inset-0 transition-all duration-300 ease-in-out", 
+                  "transition-all duration-300 ease-in-out", 
                   activeTab === "operations" 
                     ? "opacity-100 transform-none z-10 pointer-events-auto" 
                     : previousTab === "operations" && isAnimating
@@ -351,11 +351,10 @@ export function Team({
           </div>
         </div>
         
-        {/* Added spacer div to ensure clear separation on mobile */}
-        <div className="h-20 md:hidden"></div>
+
         
         {/* Added Certification/Recognition Section - positioned below team cards */}
-        <div className="relative pt-12 mt-20 sm:mt-16 mb-28 sm:mb-10 border-t border-gray-100">
+        <div className="relative pt-12 mt-12 sm:mt-16 mb-28 sm:mb-10 border-t border-gray-100">
           <div className="bg-white py-4">
             <p className="text-center text-gray-500 text-sm uppercase tracking-wider font-medium mb-8">
               Certifications & Industry Recognition

@@ -14,20 +14,22 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <div> {/* Increased padding to account for fixed header */}
+      <div> 
         <Hero />
         <Partners />
         <Services />
         <Testimonials />
         <Map />
-        <Team />
-        <CaseStudies />
+        <div className="relative">
+          <Team />
+          <CaseStudies />
+        </div>
         <FAQ />
-        {/* Other sections will go here */}
+        
       </div>
       <Footer />
       
-      {/* Fixed Book a Survey button - client component */}
+      
       <MobileBookButton />
     </main>
   );
