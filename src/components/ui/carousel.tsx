@@ -1,5 +1,45 @@
 "use client"
 
+/**
+ * Carousel Component System
+ * 
+ * A comprehensive, accessible carousel/slider implementation built on top of Embla Carousel.
+ * This component system provides a flexible API for creating various carousel experiences,
+ * with full keyboard navigation, screen reader support, and responsive design.
+ * 
+ * Features:
+ * - Horizontal and vertical orientation support
+ * - Customizable navigation controls
+ * - Keyboard navigation with arrow keys
+ * - Touch and drag support for mobile
+ * - ARIA compliant for accessibility
+ * - Automatic state management for navigation buttons
+ * - Context-based API for flexible composition
+ * 
+ * Example usage:
+ * ```tsx
+ * // Basic usage
+ * <Carousel>
+ *   <CarouselContent>
+ *     <CarouselItem>Slide 1</CarouselItem>
+ *     <CarouselItem>Slide 2</CarouselItem>
+ *     <CarouselItem>Slide 3</CarouselItem>
+ *   </CarouselContent>
+ *   <CarouselPrevious />
+ *   <CarouselNext />
+ * </Carousel>
+ * 
+ * // With custom options
+ * <Carousel
+ *   opts={{
+ *     loop: true,
+ *     align: "start",
+ *   }}
+ * >
+ *   Content and controls
+ * </Carousel>
+ * ```
+ */
 import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -9,11 +49,22 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
+/**
+ * Type definitions for the carousel API and options
+ */
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]
 type CarouselPlugin = UseCarouselParameters[1]
 
+/**
+ * Props for the main Carousel component
+ * 
+ * @property {CarouselOptions} opts - Embla Carousel configuration options
+ * @property {CarouselPlugin} plugins - Embla Carousel plugins
+ * @property {"horizontal" | "vertical"} orientation - Direction of carousel movement
+ * @property {function} setApi - Optional callback to access the carousel API externally
+ */
 type CarouselProps = {
   opts?: CarouselOptions
   plugins?: CarouselPlugin
@@ -21,6 +72,10 @@ type CarouselProps = {
   setApi?: (api: CarouselApi) => void
 }
 
+/**
+ * Context properties for sharing carousel state and functionality
+ * between subcomponents
+ */
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0]
   api: ReturnType<typeof useEmblaCarousel>[1]
@@ -30,8 +85,17 @@ type CarouselContextProps = {
   canScrollNext: boolean
 } & CarouselProps
 
+/**
+ * React context for sharing carousel state and methods with child components
+ */
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
 
+/**
+ * Hook to access carousel context
+ * 
+ * @throws {Error} If used outside of a Carousel component
+ * @returns {CarouselContextProps} Carousel context with API and controls
+ */
 function useCarousel() {
   const context = React.useContext(CarouselContext)
 
@@ -42,6 +106,11 @@ function useCarousel() {
   return context
 }
 
+/**
+ * Main Carousel component that initializes the carousel and provides context
+ * 
+ * @component
+ */
 const Carousel = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
@@ -68,6 +137,9 @@ const Carousel = React.forwardRef<
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
     const [canScrollNext, setCanScrollNext] = React.useState(false)
 
+    /**
+     * Updates button states when the carousel position changes
+     */
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
         return
@@ -77,14 +149,23 @@ const Carousel = React.forwardRef<
       setCanScrollNext(api.canScrollNext())
     }, [])
 
+    /**
+     * Scroll to the previous slide
+     */
     const scrollPrev = React.useCallback(() => {
       api?.scrollPrev()
     }, [api])
 
+    /**
+     * Scroll to the next slide
+     */
     const scrollNext = React.useCallback(() => {
       api?.scrollNext()
     }, [api])
 
+    /**
+     * Handle keyboard navigation
+     */
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
         if (event.key === "ArrowLeft") {
@@ -98,6 +179,7 @@ const Carousel = React.forwardRef<
       [scrollPrev, scrollNext],
     )
 
+    // Share API with parent component if requested
     React.useEffect(() => {
       if (!api || !setApi) {
         return
@@ -106,6 +188,7 @@ const Carousel = React.forwardRef<
       setApi(api)
     }, [api, setApi])
 
+    // Set up event listeners for the carousel
     React.useEffect(() => {
       if (!api) {
         return
@@ -150,6 +233,11 @@ const Carousel = React.forwardRef<
 )
 Carousel.displayName = "Carousel"
 
+/**
+ * CarouselContent component - Container for carousel items
+ * 
+ * @component
+ */
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -172,6 +260,11 @@ const CarouselContent = React.forwardRef<
 })
 CarouselContent.displayName = "CarouselContent"
 
+/**
+ * CarouselItem component - Individual slide in the carousel
+ * 
+ * @component
+ */
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -194,6 +287,11 @@ const CarouselItem = React.forwardRef<
 })
 CarouselItem.displayName = "CarouselItem"
 
+/**
+ * CarouselPrevious component - Button to navigate to previous slide
+ * 
+ * @component
+ */
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
@@ -223,6 +321,11 @@ const CarouselPrevious = React.forwardRef<
 })
 CarouselPrevious.displayName = "CarouselPrevious"
 
+/**
+ * CarouselNext component - Button to navigate to next slide
+ * 
+ * @component
+ */
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>

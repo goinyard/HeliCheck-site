@@ -1,9 +1,58 @@
+/**
+ * Button Component
+ * 
+ * A versatile button component with multiple variants and sizes that follows accessibility best practices.
+ * Built with Radix UI Slot primitive for composition flexibility, allowing button functionality to be applied
+ * to any element using the asChild prop.
+ * 
+ * Features:
+ * - Multiple visual variants including brand-specific styles
+ * - Responsive sizing options
+ * - Support for icons with automatic spacing
+ * - Full keyboard navigation support
+ * - Accessible focus states with visible focus rings
+ * - Disabled states with appropriate visual feedback
+ * 
+ * @example
+ * // Default button
+ * <Button>Click me</Button>
+ * 
+ * // Brand button with large size
+ * <Button variant="brand" size="lg">Book a Survey</Button>
+ * 
+ * // Outline button with icon
+ * <Button variant="brandOutline" size="lg">
+ *   <ArrowRight /> Explore Services
+ * </Button>
+ * 
+ * // As child pattern (rendering as a link)
+ * <Button asChild variant="link">
+ *   <a href="/services">Learn more</a>
+ * </Button>
+ * 
+ * @accessibility
+ * - Maintains native button semantics by default
+ * - Preserves focus visibility for keyboard users
+ * - Includes appropriate ARIA attributes
+ * - Supports screen readers with proper role information
+ */
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Button variant and size definitions using class-variance-authority
+ * 
+ * The button component supports numerous visual variants and size options
+ * through a comprehensive set of Tailwind CSS classes.
+ * 
+ * @property {object} variants - Available visual and size variants
+ * @property {object} variants.variant - Visual style variants
+ * @property {object} variants.size - Size variants with appropriate spacing
+ * @property {object} defaultVariants - Default variant and size if not specified
+ */
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer",
   {
@@ -39,6 +88,17 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * Button component implementation
+ * 
+ * @param {string} className - Additional CSS classes to apply
+ * @param {string} variant - Visual style variant
+ * @param {string} size - Size variant
+ * @param {boolean} asChild - Whether to render as a slot (to wrap other elements)
+ * @param {React.ComponentProps<"button">} props - All native button attributes
+ * 
+ * @returns {JSX.Element} - Button component with appropriate styling and behavior
+ */
 function Button({
   className,
   variant,

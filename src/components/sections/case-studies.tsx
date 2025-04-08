@@ -5,6 +5,8 @@ import { Gallery4 } from "@/components/blocks/gallery4";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { CarouselApi } from "@/components/ui/carousel";
+import { SectionHeader } from "@/components/ui/section-header";
+import { FileText } from "lucide-react";
 
 interface CaseStudiesProps {
   className?: string;
@@ -73,18 +75,13 @@ export function CaseStudies({ className }: CaseStudiesProps) {
   return (
     <section className={cn("py-20 mt-0 bg-gray-50 relative z-10", className)} id="case-studies">
       <div className="container mx-auto mb-6">
-        <div className="flex flex-col items-center text-center mb-4">
-          <div className="mb-4 px-3 py-1 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] inline-flex items-center text-sm font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-            Case Studies
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Project Success Stories
-          </h2>
-          <p className="text-gray-500 md:text-lg max-w-3xl">
-            Explore how our advanced helicopter geophysical surveys have led to significant discoveries and project success for our clients across the globe.
-          </p>
-        </div>
+        <SectionHeader
+          pillText="Case Studies"
+          pillIcon={FileText}
+          heading="Project Success Stories"
+          description="Explore how our advanced helicopter geophysical surveys have led to significant discoveries and project success for our clients across the globe."
+          align="center"
+        />
         
         {/* Navigation Controls - Removed to improve visibility */}
       </div>

@@ -1,3 +1,49 @@
+/**
+ * Sheet Component
+ * 
+ * A modal dialog that slides in from the edge of the screen.
+ * Useful for displaying additional content or controls without navigating away from the current view.
+ * 
+ * Built on Radix UI's Dialog primitive for accessibility and consistent behavior.
+ * 
+ * Features:
+ * - Multiple positions (top, right, bottom, left)
+ * - Smooth slide-in/out animations
+ * - Overlay with background dimming
+ * - Built-in close button
+ * - Accessible keyboard navigation and focus management
+ * - Organized structure with header and footer sections
+ * 
+ * @example
+ * ```tsx
+ * <Sheet>
+ *   <SheetTrigger asChild>
+ *     <Button variant="outline">Open Sheet</Button>
+ *   </SheetTrigger>
+ *   <SheetContent>
+ *     <SheetHeader>
+ *       <SheetTitle>Edit Profile</SheetTitle>
+ *       <SheetDescription>Make changes to your profile here.</SheetDescription>
+ *     </SheetHeader>
+ *     <div className="py-4">
+ *       <Input placeholder="Name" />
+ *     </div>
+ *     <SheetFooter>
+ *       <SheetClose asChild>
+ *         <Button>Save changes</Button>
+ *       </SheetClose>
+ *     </SheetFooter>
+ *   </SheetContent>
+ * </Sheet>
+ * ```
+ * 
+ * @accessibility
+ * - Follows WAI-ARIA Dialog pattern
+ * - Manages focus when opened and closed
+ * - Dismissible via Escape key
+ * - Includes proper ARIA roles and labels
+ * - Prevents background page interaction when open
+ */
 "use client"
 
 import * as React from "react"
@@ -6,28 +52,45 @@ import { XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Root Sheet component that manages the dialog state
+ */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
 }
 
+/**
+ * Button or element that triggers the sheet to open when clicked
+ */
 function SheetTrigger({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />
 }
 
+/**
+ * Button or element that closes the sheet when clicked
+ */
 function SheetClose({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Close>) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />
 }
 
+/**
+ * Container for the sheet content to be rendered
+ */
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
 }
 
+/**
+ * Backdrop overlay that dims the background when the sheet is open
+ * 
+ * @param className - Additional CSS classes to apply
+ */
 function SheetOverlay({
   className,
   ...props
@@ -44,6 +107,13 @@ function SheetOverlay({
   )
 }
 
+/**
+ * Main content container for the sheet
+ * 
+ * @param className - Additional CSS classes to apply
+ * @param children - Sheet content
+ * @param side - The side of the screen the sheet appears from
+ */
 function SheetContent({
   className,
   children,
@@ -81,6 +151,11 @@ function SheetContent({
   )
 }
 
+/**
+ * Container for the top section of the sheet, typically contains the title and description
+ * 
+ * @param className - Additional CSS classes to apply
+ */
 function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -91,6 +166,11 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * Container for the bottom section of the sheet, typically contains action buttons
+ * 
+ * @param className - Additional CSS classes to apply
+ */
 function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -101,6 +181,11 @@ function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
+/**
+ * Title component for the sheet
+ * 
+ * @param className - Additional CSS classes to apply
+ */
 function SheetTitle({
   className,
   ...props
@@ -114,6 +199,11 @@ function SheetTitle({
   )
 }
 
+/**
+ * Description component for the sheet, provides additional context
+ * 
+ * @param className - Additional CSS classes to apply
+ */
 function SheetDescription({
   className,
   ...props

@@ -10,6 +10,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Globe } from "lucide-react";
 
 interface Location {
   name: string;
@@ -122,18 +124,13 @@ export function Map({
   return (
     <section id="global-presence" className={cn("py-20 bg-white", className)}>
       <div className="container px-4 md:px-6 mx-auto">
-        <div className="flex flex-col items-center text-center mb-12">
-          <div className="mb-4 px-3 py-1 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] inline-flex items-center text-sm font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            Worldwide Network
-          </div>
-          <h2 className="text-4xl font-bold tracking-tight mb-4">
-            {title.bold} {title.light}
-          </h2>
-          <p className="text-gray-500 text-lg max-w-3xl mb-6">
-            {subtitle}
-          </p>
-        </div>
+        <SectionHeader
+          pillText="Worldwide Network"
+          pillIcon={Globe}
+          heading={`${title.bold} ${title.light}`}
+          description={subtitle}
+          align="center"
+        />
 
         <div ref={mapRef} className="mb-12 flex justify-center items-center h-[224px] max-w-[56%] mx-auto">
           <WorldMap 

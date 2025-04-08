@@ -4,7 +4,8 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users } from "lucide-react";
+import { SectionHeader } from "@/components/ui/section-header";
 
 interface TeamMember {
   id: string;
@@ -152,33 +153,14 @@ export function Team({
   return (
     <section className={cn("py-20 pb-20 sm:pb-20 bg-white overflow-visible", className)} id="team">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="mb-4 px-3 py-1 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] inline-flex items-center text-sm font-medium">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-3.5 w-3.5 mr-1" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            >
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-            {subtitle}
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            {title}
-          </h2>
-          <p className="text-gray-500 md:text-lg max-w-3xl">
-            {description}
-          </p>
-        </div>
+        {/* Using SectionHeader component instead of custom header */}
+        <SectionHeader
+          pillText={subtitle}
+          pillIcon={Users}
+          heading={title}
+          description={description}
+          align="center"
+        />
         
         {/* Team Showcase with Shadcn Tabs */}
         <div className="mb-12">

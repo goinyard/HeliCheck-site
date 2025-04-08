@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Faq3 } from "@/components/blocks/faq3";
+import { HelpCircle } from "lucide-react";
 
 interface FaqProps {
   className?: string;
@@ -51,6 +52,7 @@ export function FAQ({ className }: FaqProps) {
       <div className="container px-4 md:px-6 mx-auto">
         <Faq3
           pillText="Common Questions"
+          pillIcon={HelpCircle}
           heading={{
             bold: "Frequently Asked",
             light: "Questions"

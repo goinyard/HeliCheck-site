@@ -3,6 +3,8 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Activity } from "lucide-react";
 
 interface ServicesProps {
   className?: string;
@@ -19,18 +21,13 @@ export function Services({ className }: ServicesProps) {
     <section id="services" className={cn("bg-white", className)}>
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="mb-4 px-3 py-1 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] inline-flex items-center text-sm font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-            Geophysical Services
-          </div>
-          <h2 className="text-4xl font-bold tracking-tight mb-4">
-            Our Survey Solutions
-          </h2>
-          <p className="text-gray-500 text-lg max-w-3xl mb-6">
-           Our proprietary technology delivers unparalleled data quality and depth capabilities that conventional methods can't match, transforming exploration challenges into actionable insights and cost-effective discoveries for clients worldwide.
-          </p>
-        </div>
+        <SectionHeader
+          pillText="Geophysical Services"
+          pillIcon={Activity}
+          heading="Our Survey Solutions"
+          description="Our proprietary technology delivers unparalleled data quality and depth capabilities that conventional methods can't match, transforming exploration challenges into actionable insights and cost-effective discoveries for clients worldwide."
+          align="center"
+        />
 
         {/* Featured Service Card */}
         <div className="max-w-7xl mx-auto bg-[var(--brand)]/5 p-6 sm:p-10 rounded-2xl mb-12">

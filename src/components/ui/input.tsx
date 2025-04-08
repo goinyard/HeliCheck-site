@@ -1,21 +1,72 @@
+/**
+ * Input Component
+ * 
+ * A flexible input field component for collecting user input in forms.
+ * Built on the native input element with enhanced styling and accessibility.
+ * 
+ * Features:
+ * - Consistent styling with the design system
+ * - Support for various input types (text, email, password, etc.)
+ * - Focus states with keyboard navigation support
+ * - Customizable through className prop
+ * - Appropriate sizing and padding for easy interaction
+ * 
+ * @example
+ * ```tsx
+ * <Input
+ *   type="email"
+ *   placeholder="Email address"
+ *   value={email}
+ *   onChange={(e) => setEmail(e.target.value)}
+ *   required
+ * />
+ * ```
+ * 
+ * @example
+ * ```tsx
+ * <div className="grid w-full max-w-sm items-center gap-1.5">
+ *   <Label htmlFor="name">Name</Label>
+ *   <Input id="name" placeholder="Your name" />
+ * </div>
+ * ```
+ * 
+ * @accessibility
+ * - Maintains native input accessibility features
+ * - High contrast focus indicators for keyboard users
+ * - Works with form validation and error messaging patterns
+ * - Compatible with screen readers and other assistive technologies
+ * - Supports aria-invalid and aria-describedby for error states
+ */
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
-  return (
-    <input
-      type={type}
-      data-slot="input"
-      className={cn(
-        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        className
-      )}
-      {...props}
-    />
-  )
-}
+/**
+ * Extended input component with consistent styling
+ * 
+ * @param className - Additional CSS classes to apply to the input
+ * @param type - The input type (text, password, email, etc.)
+ * @param props - All standard HTML input attributes
+ */
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Input.displayName = "Input"
 
 export { Input }

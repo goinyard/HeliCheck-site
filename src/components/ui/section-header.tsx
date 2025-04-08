@@ -1,6 +1,61 @@
+/**
+ * Section Header Component
+ * 
+ * A versatile and consistent header for page sections featuring a branded pill/tag,
+ * headings, and optional description text. Used to introduce major content sections
+ * with visual hierarchy and consistent styling.
+ * 
+ * Features:
+ * - Branded pill/tag with optional icon
+ * - Flexible heading and subheading structure
+ * - Optional description paragraph with customizable width
+ * - Multiple alignment options (left, center, right)
+ * - Support for dark mode contexts
+ * - Responsive typography and spacing
+ * 
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <SectionHeader
+ *   pillText="Features"
+ *   heading="Powerful Features for Your Workflow"
+ *   description="Discover how our platform can improve your productivity."
+ * />
+ * 
+ * // With icon and alignment
+ * <SectionHeader
+ *   pillText="About Us" 
+ *   pillIcon={Users}
+ *   heading="Our Story"
+ *   subheading="Since 2015"
+ *   description="We've been revolutionizing this industry for over a decade."
+ *   align="left"
+ *   descriptionMaxWidth="2xl"
+ * />
+ * 
+ * // In dark context
+ * <div className="bg-gray-900 p-12">
+ *   <SectionHeader
+ *     pillText="Testimonials"
+ *     heading="What Our Customers Say"
+ *     description="Real feedback from real customers."
+ *     dark={true}
+ *   />
+ * </div>
+ * ```
+ * 
+ * @accessibility
+ * - Uses semantic heading elements for proper document structure
+ * - Maintains appropriate text contrast ratios
+ * - Supports various text alignments for different design needs
+ * - Preserves content readability with max-width constraints
+ */
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
 
+/**
+ * Props for the SectionHeader component
+ */
 interface SectionHeaderProps {
   /** Text displayed in the pill/tag element */
   pillText: string;
@@ -22,6 +77,19 @@ interface SectionHeaderProps {
   className?: string;
 }
 
+/**
+ * A versatile section header component for indicating the start of major content sections
+ * 
+ * @param pillText - Text to display in the pill/tag
+ * @param pillIcon - Optional icon component to display in the pill
+ * @param heading - Main heading text
+ * @param subheading - Optional subheading text displayed above the main heading
+ * @param description - Optional description paragraph
+ * @param descriptionMaxWidth - Maximum width constraint for the description text
+ * @param align - Text alignment for the entire section header
+ * @param dark - Whether the component is displayed on a dark background
+ * @param className - Additional CSS classes to apply
+ */
 export function SectionHeader({
   pillText,
   pillIcon: PillIcon,

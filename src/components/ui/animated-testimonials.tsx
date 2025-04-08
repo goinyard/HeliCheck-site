@@ -1,3 +1,47 @@
+/**
+ * Animated Testimonials Component
+ * 
+ * A dynamic testimonial carousel that displays quotes and images with smooth animations.
+ * Features stacked card visuals, word-by-word text reveals, and navigation controls.
+ * 
+ * Features:
+ * - Animated transitions between testimonials
+ * - Staggered word-by-word text reveal animation
+ * - Random rotation effects for a natural stacked appearance
+ * - Automatic cycling with configurable autoplay
+ * - Responsive layout with mobile and desktop support
+ * - Manual navigation controls with animated buttons
+ * 
+ * @example
+ * ```tsx
+ * const testimonials = [
+ *   {
+ *     quote: "This product has completely transformed our workflow.",
+ *     name: "Alex Johnson",
+ *     designation: "CTO, TechCorp",
+ *     src: "/images/testimonials/alex.jpg"
+ *   },
+ *   {
+ *     quote: "The best solution we've found in years of searching.",
+ *     name: "Sam Williams",
+ *     designation: "Product Manager, Innovate Inc",
+ *     src: "/images/testimonials/sam.jpg"
+ *   }
+ * ];
+ * 
+ * <AnimatedTestimonials 
+ *   testimonials={testimonials} 
+ *   autoplay={true} 
+ *   className="my-12"
+ * />
+ * ```
+ * 
+ * @accessibility
+ * - Navigation buttons have proper hover/focus states
+ * - Images include alt text with the person's name
+ * - Content maintains appropriate contrast levels
+ * - Interactive elements are keyboard navigable
+ */
 "use client";
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
@@ -6,6 +50,14 @@ import Image from "next/image";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Represents a single testimonial item
+ * 
+ * @property quote - The testimonial text
+ * @property name - The name of the person giving the testimonial
+ * @property designation - The job title or organization of the person
+ * @property src - The path to the image of the person
+ */
 type Testimonial = {
   quote: string;
   name: string;
@@ -13,6 +65,13 @@ type Testimonial = {
   src: string;
 };
 
+/**
+ * Animated testimonial carousel with customizable behavior and appearance
+ * 
+ * @param testimonials - Array of testimonial objects to display
+ * @param autoplay - Whether to automatically cycle through testimonials (defaults to false)
+ * @param className - Additional CSS classes to apply to the container
+ */
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
@@ -35,18 +94,28 @@ export const AnimatedTestimonials = ({
     setIsClient(true);
   }, [testimonials]);
 
+  /**
+   * Advances to the next testimonial in the carousel
+   */
   const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
 
+  /**
+   * Goes back to the previous testimonial in the carousel
+   */
   const handlePrev = useCallback(() => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   }, [testimonials.length]);
 
+  /**
+   * Checks if the given index is the currently active testimonial
+   */
   const isActive = (index: number) => {
     return index === active;
   };
 
+  // Set up autoplay if enabled
   useEffect(() => {
     if (autoplay && isClient) {
       const interval = setInterval(handleNext, 10000);
@@ -54,7 +123,9 @@ export const AnimatedTestimonials = ({
     }
   }, [autoplay, isClient, handleNext]);
 
-  // Use stable values for server render, then use pre-calculated random values on client
+  /**
+   * Gets the rotation value for a testimonial while ensuring SSR compatibility
+   */
   const getRotationValue = (index: number) => {
     if (!isClient) return 0; // Use 0 during server rendering
     return rotationValues.current[index] || 0;
@@ -166,12 +237,14 @@ export const AnimatedTestimonials = ({
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center group/button cursor-pointer"
+              aria-label="Previous testimonial"
             >
               <IconArrowLeft className="h-5 w-5 text-foreground group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
               className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center group/button cursor-pointer"
+              aria-label="Next testimonial"
             >
               <IconArrowRight className="h-5 w-5 text-foreground group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>

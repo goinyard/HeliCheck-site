@@ -5,6 +5,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/ui/section-header";
+import { HelpCircle, LucideIcon } from "lucide-react";
 
 interface FaqItem {
   id: string;
@@ -14,6 +16,7 @@ interface FaqItem {
 
 interface Faq3Props {
   pillText?: string;
+  pillIcon?: LucideIcon;
   heading: string | {
     bold: string;
     light: string;
@@ -73,7 +76,8 @@ const faqItems = [
 ];
 
 const Faq3 = ({
-  pillText,
+  pillText = "FAQ",
+  pillIcon: PillIcon = HelpCircle,
   heading = "Frequently asked questions",
   description = "Find answers to common questions about our products. Can't find what you're looking for? Contact our support team.",
   items = faqItems,
@@ -84,27 +88,22 @@ const Faq3 = ({
   secondaryButtonText,
   secondaryButtonUrl,
 }: Faq3Props) => {
+  const headingText = typeof heading === 'string' 
+    ? heading 
+    : `${heading.bold} ${heading.light}`;
+    
   return (
     <section className="py-32">
       <div className="container space-y-16">
-        <div className="mx-auto flex max-w-3xl flex-col text-left md:text-center">
-          {pillText && (
-            <div className="mb-4 px-3 py-1 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] inline-flex items-center text-sm font-medium self-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-              {pillText}
-            </div>
-          )}
-          <h2 className="text-4xl font-bold tracking-tight mb-4">
-            {typeof heading === 'string' ? heading : (
-              <>
-                {heading.bold} {heading.light}
-              </>
-            )}
-          </h2>
-          <p className="text-gray-500 text-lg max-w-3xl mb-6">
-            {description}
-          </p>
-        </div>
+        <SectionHeader
+          pillText={pillText}
+          pillIcon={PillIcon}
+          heading={headingText}
+          description={description}
+          align="center"
+          className="mx-auto max-w-3xl"
+        />
+        
         <Accordion
           type="single"
           collapsible

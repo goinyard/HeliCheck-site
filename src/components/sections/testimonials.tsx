@@ -2,6 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { SectionHeader } from "@/components/ui/section-header";
+import { MessageSquare } from "lucide-react";
 import { useEffect } from "react";
 
 interface TestimonialsProps {
@@ -41,17 +43,14 @@ export function Testimonials({ className }: TestimonialsProps) {
   return (
     <section id="testimonials" className={cn("py-12 bg-white", className)}>
       <div className="container px-4 md:px-6 mx-auto">
-        {/* Section Header - Updated to match Services style */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="mb-4 px-3 py-1 rounded-full bg-[var(--brand)]/10 text-[var(--brand)] inline-flex items-center text-sm font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            Client Testimonials
-          </div>
-          <h2 className="text-4xl font-bold tracking-tight mb-4"> What are People Saying?          </h2>
-          <p className="text-gray-500 text-lg max-w-3xl mb-6">
-            Discover why exploration companies trust HeliCheck for their critical geophysical survey needs.
-          </p>
-        </div>
+        {/* Using the SectionHeader component */}
+        <SectionHeader 
+          pillText="Client Testimonials"
+          pillIcon={MessageSquare}
+          heading="What are People Saying?"
+          description="Discover why exploration companies trust HeliCheck for their critical geophysical survey needs."
+          align="center"
+        />
 
         {/* Animated Testimonials Component */}
         <AnimatedTestimonials
